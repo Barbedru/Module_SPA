@@ -12,6 +12,8 @@ const bus = {
     equipments: ['sae', 'tft', 'speech']
 };
 
+console.log(Object.values(bus));
+
 //3.2 Object.values
 
 console.log(data);

@@ -553,3 +553,8 @@ const data = {
     "visibleBandeauAppli": false
   }
 }
+
+Object.values(data).forEach(perturbation =>{
+  console.log(perturbation.texte);
+});
+
