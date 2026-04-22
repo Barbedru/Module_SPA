@@ -1,13 +1,13 @@
 //2.1 Fonctions simples
-const sayHello = function() {
+const sayHello = () => {
     console.log('Hello')
 };
 
-const sayMyName = function(first, last) {
+const sayMyName = (first, last) => {
     console.log(first, last)
 };
 
-const sayMyAge = function(age) {
+const sayMyAge = (age) => {
     console.log('You are ' + age + ' years old')
 };
 
@@ -27,7 +27,9 @@ const object = {
     }
 };
 
-object.showThis();
+// La conversion est faisable syntaxiquement, mais casse la logique du code (car this ne pointera pas vers l'object).
+
+object.showThis() ;
 
 //----------------------//
 //2.3 Application
@@ -38,11 +40,16 @@ const odile = {
         last: 'Crok'
     },
     age: 23,
-    //sayHello: ...
-    //sayMyName:...
-    //sayMyAge:...
+    sayHello: () => console.log( 'Hello'),  // ici pas de this donc arrow function possible
+
+    sayMyName: function() {                       // ici présence on a besoin de this donc pas de arrow function possible
+        console.log(this.name.first, this.name.last)
+    },
+    sayMyAge: function () {                      //// ici présence on a besoin de this donc pas de arrow function possible
+        console.log(this.age + ' ans')
+    }
 };
 
-//odile.sayHello()
-//odile.sayMyName()
-//odile.sayMyAge()
+odile.sayHello()
+odile.sayMyName()
+odile.sayMyAge()
