@@ -12,11 +12,32 @@ const bus = {
     equipments: ['sae', 'tft', 'speech']
 };
 
-//console.log(Object.values(bus));
 
-Object.keys(bus).forEach(key =>{
-    console.log(key + " : " + bus[key]);
-});
+
+//Object.keys(bus).forEach(key => {
+//   console.log(key + " : " + bus[key]);
+//});
+
+function afficherClesValeurs(obj, prefixe = '') {
+    Object.keys(obj).forEach(cle => {
+        const valeur = obj[cle];
+        const chemin = prefixe ? `${prefixe}.${cle}` : cle;
+
+        if (typeof valeur === 'object' && valeur !== null) {
+            afficherClesValeurs(valeur, chemin);
+        } else {
+            console.log(`${chemin} : ${valeur}`);
+        }
+    });
+}
+
+
+
+
 //3.2 Object.values
 
-console.log(data);
+console.log(bus);
+
+Object.values(data).forEach(perturbation => {
+    console.log(perturbation.texte);
+});

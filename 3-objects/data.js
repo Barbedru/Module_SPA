@@ -554,7 +554,5 @@ const data = {
   }
 }
 
-Object.values(data).forEach(perturbation => {
-  console.log(perturbation.texte);
-});
+
 
