@@ -12,8 +12,11 @@ const bus = {
     equipments: ['sae', 'tft', 'speech']
 };
 
-console.log(Object.values(bus));
+//console.log(Object.values(bus));
 
+Object.keys(bus).forEach(key =>{
+    console.log(key + " : " + bus[key]);
+});
 //3.2 Object.values
 
 console.log(data);
