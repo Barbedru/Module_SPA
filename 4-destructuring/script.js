@@ -24,44 +24,40 @@ console.log(data);
 
 
 
-function ajouterPerturbation({
-  id,
-  type = "restriction_ltc",
-  dateDebut,
-  dateFin,
-  heureDebut = "00:00:00",
-  heureFin = "00:00:00",
-  latitude = -1,
-  longitude = -1,
-  texte = "",
-  visibleTC = true
-}) {
-  const cle = "SEM_" + id;
+function newPerturbation({
+                             dateDebut,
+                             dateFin,
+                             texte,
+                             plan,
+                             type ='restriction_ltc',
+                             heureDebut='00:00:00',
+                             heureFin='00:00:00',
+                             latitude=-1,
+                             longitude=-1,
+                             weekEnd='2',
+                             listeLigneArret="SEM_B",
+                             visibleTC=true,
+                             visibleVoiture=false}
+){
 
-  data[cle] = {
-    id,
-    type,
-    dateDebut,
-    dateFin,
-    heureDebut,
-    heureFin,
-    latitude,
-    longitude,
-    texte,
-    visibleTC
-  };
-
-    ajouterPerturbation({
-        id: 200000,
-        type: "restriction_ltc",
-        dateDebut: "01/01/2025",
-        dateFin: "02/01/2025",
-        heureDebut: "08:00:00",
-        latitude: 45.18,
-        longitude: 5.72,
-        texte: "Test perturbation"
-    });
-
+    data['SEM'+Date.now()]= {
+        dateDebut:dateDebut,
+        type: type,
+        dateFin:dateFin,
+        texte:texte,
+        plan:plan,
+        heureDebut:heureDebut,
+        heureFin:heureFin,
+        latitude:latitude,
+        longitude:longitude,
+        weekEnd:weekEnd,
+        listeLigneArret:listeLigneArret,
+        visibleTC:visibleTC,
+        visibleVoiture:visibleVoiture,
+    }
 }
-
-console.log(data["SEM_200000"]);
+newPerturbation({
+    dateDebut:"23/04/2026 16:00",
+    dateFin:"23/04/2026 10:00",
+    texte:"Nouvelle perturbation signalée",
+    plan:"blabla"})
