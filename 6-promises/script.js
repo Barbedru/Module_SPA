@@ -21,6 +21,9 @@ function secondWithError() {
   return sleep(100).then(() => {throw new Error("catch me if you can");})
 }
 
-first();
-second();
-third();
+first()
+    .then(() => secondWithError())
+    .catch(err => console.error(err.message))
+    .finally(() => third());
+
+
