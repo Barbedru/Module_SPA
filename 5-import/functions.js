@@ -3,6 +3,7 @@ export const showError = message => console.error(message);
 
 
 
+
 /// C'est celle là, la fonction anonyme ///
 export default () => {
     var _nyan = 0;
